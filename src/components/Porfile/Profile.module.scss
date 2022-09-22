@@ -1,0 +1,46 @@
+.Profile {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 4rem;
+  background: #607998;
+  gap: 1rem;
+  font-family: unset;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+  border: none;
+  padding: 0%;
+}
+
+#i {
+  display: flex;
+  font-size: 2.5rem;
+  //margin-bottom: 3rem;
+  color: #fff;
+}
+.ProfileTorow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 0%;
+}
+.ProfileLogout {
+  display: flex;
+  flex-direction: column;
+  background: #607998;
+  color: #fff;
+  border: none;
+  font-family: unset;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.7rem;
+  text-decoration: 0.1rem underline #fff;
+
+
+}

@@ -1,0 +1,35 @@
+.TileCardForm {
+  display: flex;
+  margin: 0%;
+}
+.TileCard {
+  display: flex;
+  border-radius: 20px;
+  width: 11rem;
+  height: 13rem;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 6%;
+  gap: 0.3rem;
+}
+.TileCardButton {
+  //border-radius: 4px;
+  height: 20%;
+  width: 2.5rem;
+  border-radius: 10px;
+  border: none;
+}
+.TileCardButtonTrash {
+  background: #90aacb;
+  border-radius: 4px;
+  height: 20%;
+  width: 2.5rem;
+  border-radius: 10px;
+  border: none;
+}
+#i {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+  color: #fff;
+}
