@@ -32,71 +32,68 @@ export const Login: React.FC = () => {
   return (
     <div className={classes.LoginForm}>
       <div className={classes.LoginCardForm}>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          />
-          <Formik
-            initialValues={{
-              email: "",
-              password: "",
-            }}
-            validationSchema={SignupSchema}
-            onSubmit={(
-              values: User,
-              { setSubmitting }: FormikHelpers<User>
-            ) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                login(values);
-                setSubmitting(false);
-              }, 500);
-            }}
-          >
-            {({ errors, touched }) => (
-              <Form className={classes.inputLogin}>
-                <i
-                  className="fa fa-user-circle"
-                  aria-hidden="true"
-                  id={classes.i}
-                ></i>
-                <div className={classes.pAndInputStryleLogin}>
-                  <p className={classes.pStryleLogin}>Email</p>
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                    className={classes.inpotStryleLogin}
-                  />
-                  {errors.email && touched.email ? (
-                    <div>{errors.email}</div>
-                  ) : null}
-                  <p className={classes.pStryleLogin}>Password</p>
-                  <Field
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                    className={classes.inpotStryleLogin}
-                  />
-                  {errors.password && touched.password ? (
-                    <div>{errors.password}</div>
-                  ) : null}
-                </div>
-                <div className={classes.buttonLogin}>
-                  <button type="submit" className={classes.buttonStryleLogin}>
-                    Login
-                  </button>
-                  <button
-                    onClick={signUp}
-                    className={classes.buttonStryleSingUpInLogin}
-                  >
-                    SignUp
-                  </button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <Formik
+          initialValues={{
+            email: "",
+            password: "",
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={(values: User, { setSubmitting }: FormikHelpers<User>) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              login(values);
+              setSubmitting(false);
+            }, 500);
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className={classes.inputLogin}>
+              <i
+                className="fa fa-user-circle"
+                aria-hidden="true"
+                id={classes.i}
+              ></i>
+              <div className={classes.pAndInputStryleLogin}>
+                <p className={classes.pStryleLogin}>Email</p>
+                <Field
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  className={classes.inpotStryleLogin}
+                />
+                {errors.email && touched.email ? (
+                  <div>{errors.email}</div>
+                ) : null}
+                <p className={classes.pStryleLogin}>Password</p>
+                <Field
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  className={classes.inpotStryleLogin}
+                />
+                {errors.password && touched.password ? (
+                  <div>{errors.password}</div>
+                ) : null}
+              </div>
+              <div className={classes.buttonLogin}>
+                <button type="submit" className={classes.buttonStryleLogin}>
+                  Login
+                </button>
+                <button
+                  onClick={signUp}
+                  className={classes.buttonStryleSingUpInLogin}
+                >
+                  SignUp
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
+    </div>
   );
 };

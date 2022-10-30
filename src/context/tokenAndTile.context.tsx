@@ -3,14 +3,11 @@ import React, {
   Dispatch,
   PropsWithChildren,
   SetStateAction,
-  useEffect,
   useState,
 } from "react";
 import { Tile } from "../models/tile.model";
-import { tileService } from "../services/tile.service";
 import { ObjectId } from "bson";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useNavigate } from "react-router-dom";
 
 interface TilesContextProps {
   token: string;

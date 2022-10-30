@@ -9,6 +9,7 @@ export const Profile: React.FC = () => {
   const { token } = useContext(TilesContext);
   const navigate = useNavigate();
   const current_user = jwt_decode(token) as any;
+  console.log(current_user);
   const LogOut = async () => {
     try {
       await authService.logout();
@@ -22,6 +23,7 @@ export const Profile: React.FC = () => {
       <i className="fa fa-user-circle" aria-hidden="true" id={classes.i}></i>
       <div className={classes.ProfileTorow}>
         <span>{current_user.userName}</span>
+        <span className={classes.ProfileRole}>{current_user.role}</span>
         <button onClick={LogOut} className={classes.ProfileLogout}>
           LogOut
         </button>

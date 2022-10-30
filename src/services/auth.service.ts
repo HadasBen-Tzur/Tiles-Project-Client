@@ -1,3 +1,4 @@
+import { User } from "../models/user.model";
 import { axiosInstance } from "./axios.util";
 
 class AuthService {
@@ -7,7 +8,7 @@ class AuthService {
     setToken: (value: string | ((val: string) => string)) => void
   ) {
     console.log(email + password);
-    const response = await axiosInstance.post("user/login", {
+    const response = await axiosInstance.post("users/login", {
       email,
       password,
     });
@@ -24,20 +25,38 @@ class AuthService {
 
   async signUp(userName: string, email: string, password: string) {
     console.log(userName + email + password);
-    return await axiosInstance.post("user", {
+    return await axiosInstance.post("users", {
       userName,
       email,
       password,
     });
   }
 
-  // getCurrentUser(token: string) {
-  //   //const jwt = require("jsonwebtoken");
-  //   //jwt.decode(myLocalStorage)
-  //   // const myLocalStorage = localStorage.getItem("user");
-  //   if (!token) throw new Error("Not Found Token");
-  //   return JSON.parse(token);
-  // }
+  async findAllUsers(token: string) {
+    return (
+      await axiosInstance.get<User[]>("/users", {
+        headers: { authorization: `Bearer ${token}` },
+      })
+    ).data;
+  }
+
+  async updateUsers(
+    updateRoleUsers: User[],
+    token: string
+  ) {
+    return (
+      await axiosInstance.put<User[]>(
+        "/users",
+        {
+          updateRoleUsers: updateRoleUsers,
+        },
+        {
+          headers: { authorization: `Bearer ${token}` },
+        }
+      )
+    ).data;
+  }
+
 }
 
 export default new AuthService();

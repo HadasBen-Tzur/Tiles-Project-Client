@@ -5,7 +5,7 @@ import { ObjectId } from "bson";
 class TileService {
   async findAll(token: string) {
     return (
-      await axiosInstance.get<Tile[]>("/tile", {
+      await axiosInstance.get<Tile[]>("/tiles", {
         headers: { authorization: `Bearer ${token}` },
       })
     ).data;
@@ -20,15 +20,15 @@ class TileService {
     console.log(tilesAdded, tilesRemoved, tilesUpdated);
     return (
       await axiosInstance.put<Tile[]>(
-        "/tile",
+        "/tiles",
         {
           tilesAdded: tilesAdded,
           tilesRemoved: tilesRemoved,
           tilesUpdated: tilesUpdated,
         },
-        {
-          headers: { authorization: `Bearer ${token}` },
-        }
+        // {
+        //   headers: { authorization: `Bearer ${token}` },
+        // }
       )
     ).data;
   }

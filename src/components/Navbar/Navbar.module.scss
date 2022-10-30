@@ -1,6 +1,6 @@
 .Navbar {
   display: flex;
-  // flex-direction: column;
+  flex-direction: column;
   // justify-content: flex-start;
   // align-items: flex-start;
   // align-content: flex-start;
@@ -8,4 +8,26 @@
   // height: 10%;
   //gap: 1.5rem;
   background: #90aacb;
+}
+.NavbarDiv {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.NavbarDivForAdmin {
+  display: flex;
+  padding: 1%;
+}
+#i {
+  display: flex;
+  font-size: 2.5rem;
+  //margin-bottom: 3rem;
+  color: #fff;
+  
+}
+.iDiv{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
