@@ -18,7 +18,7 @@ const SignupSchema = Yup.object().shape({
 export const Login: React.FC = () => {
   const { setToken } = useContext(TilesContext);
   const navigate = useNavigate();
-  const login = async (event: User) => {
+  const login = async (event: {email:string, password:string}) => {
     try {
       await authService.login(event.email, event.password, setToken);
       navigate("/tiles");
@@ -42,7 +42,7 @@ export const Login: React.FC = () => {
             password: "",
           }}
           validationSchema={SignupSchema}
-          onSubmit={(values: User, { setSubmitting }: FormikHelpers<User>) => {
+          onSubmit={(values: {email: string, password: string}, { setSubmitting }: FormikHelpers<{email: string, password: string}>) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
               login(values);

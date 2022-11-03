@@ -3,7 +3,7 @@ import { Formik, Form, Field, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import authService from "../../services/auth.service";
-import { User } from "../../models/user.model";
+import { Roles, User } from "../../models/user.model";
 
 const SignupSchema = Yup.object().shape({
   userName: Yup.string()
@@ -19,7 +19,7 @@ const SignupSchema = Yup.object().shape({
 
 export const SignUp: React.FC = () => {
   const navigate = useNavigate();
-  const signUp = async (event: User) => {
+  const signUp = async (event: { userName: string; email: string; password: string }) => {
     try {
       await authService.signUp(event.userName!, event.email, event.password);
       navigate("/");
@@ -40,7 +40,20 @@ export const SignUp: React.FC = () => {
             password: "",
           }}
           validationSchema={SignupSchema}
-          onSubmit={(values: User, { setSubmitting }: FormikHelpers<User>) => {
+          onSubmit={(
+            values: {
+              userName: string;
+              email: string;
+              password: string;
+            },
+            {
+              setSubmitting,
+            }: FormikHelpers<{
+              userName: string;
+              email: string;
+              password: string;
+            }>
+          ) => {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 3));
               signUp(values);
